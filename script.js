@@ -149,9 +149,11 @@ const CANTIDAD_DE_LINEAS = 50;
 const lineaSeparadora = "=".repeat(CANTIDAD_DE_LINEAS);
 
 
-console.log('\n',lineaSeparadora);
+console.log('\n');
+console.log(lineaSeparadora);
 console.log("Pruebas del decodificador de códigos:");
 console.log(lineaSeparadora);
+
 // Puebas de codigos
 console.log(analizarCodigoSospechoso(sospechosoPruebaPeligroso)); // Esperado: Código de alta prioridad
 
@@ -164,8 +166,9 @@ console.log(analizarCodigoSospechoso(sospechosoPruebaInvalido)); // Esperado: Co
 
 // Analisis de codigos en base de datos 
 
-console.log('\n',lineaSeparadora);
-console.log("Análisis de códigos de los sospechosos registrados en sistemma:\n");
+console.log('\n');
+console.log(lineaSeparadora)
+console.log("Análisis de códigos de los sospechosos registrados en sistema:");
 console.log(lineaSeparadora);
 
 for (let sospechoso of baseDeDatos) {
