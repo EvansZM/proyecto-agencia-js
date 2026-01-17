@@ -90,7 +90,7 @@ let analizarCodigoSospechoso = (sospechoso) => {
         }
 
     } else {
-        return 'Correo no encriptado';
+        return 'Código no encriptado';
     }
 
     // Retornamos el resultado final
@@ -105,7 +105,7 @@ let generarReporteSeguridad = () => {
 
     const CANTIDAD_DE_LINEAS_INFORME = 50;
     const CANTIDAD_DE_LINEAS_TITULO = 35;
-    const ANCHO_ESPACIADOR = 12;
+    const ANCHO_ESPACIADOR = 18;
 
     let lineaRepetidaSeparadora = '-'.repeat(CANTIDAD_DE_LINEAS_INFORME);
     let lineaRepetidaSeparadoraDos = '-'.repeat(CANTIDAD_DE_LINEAS_TITULO);
@@ -143,8 +143,16 @@ const sospechosoPruebaInvalido = {
     codigo: "   ACCESO_LIBRE_123   "
 };
 
-console.log("\nPruebas del decodificador de códigos:");
 
+    //Linea de separacion 
+const CANTIDAD_DE_LINEAS = 50;
+const lineaSeparadora = "=".repeat(CANTIDAD_DE_LINEAS);
+
+
+console.log('\n',lineaSeparadora);
+console.log("Pruebas del decodificador de códigos:");
+console.log(lineaSeparadora);
+// Puebas de codigos
 console.log(analizarCodigoSospechoso(sospechosoPruebaPeligroso)); // Esperado: Código de alta prioridad
 
 
@@ -154,12 +162,25 @@ console.log(analizarCodigoSospechoso(sospechosoPruebaSeguro)); // Esperado: Cód
 console.log(analizarCodigoSospechoso(sospechosoPruebaInvalido)); // Esperado: Correo no encriptado
 
 
+// Analisis de codigos en base de datos 
+
+console.log('\n',lineaSeparadora);
+console.log("Análisis de códigos de los sospechosos registrados en sistemma:\n");
+console.log(lineaSeparadora);
+
+for (let sospechoso of baseDeDatos) {
+    console.log(`\nSospechoso: ${sospechoso.nombre}`);
+    console.log(analizarCodigoSospechoso(sospechoso));
+    console.log('-----------------------------');
+}
+
+
 listarSospechosos();
 generarReporteSeguridad();
 
 
 // Firma digital
-console.log("Sistema creado por los Agentes: Evanny Zapata y Simon Palacios");
+console.log("\nSistema creado por los Agentes: Evanny Zapata y Simon Palacios");
 
 
 
